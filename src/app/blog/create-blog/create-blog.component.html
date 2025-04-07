@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+<br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Form</title> <!-- TinyMCE Editor Script -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 70%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        label {
+            font-weight: bold;
+            font-size: 16px;
+            color: #555;
+        }
+        input[type="text"], input[type="file"], input[type="date"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+        .editor-container {
+            margin-top: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .cancel-btn {
+            background-color: #f44336;
+        }
+        .cancel-btn:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Create Blog Post</h1>
+    <form action="/submit-post" method="POST">
+        <!-- Title Input -->
+        <div>
+            <label for="title">Blog Post Title</label>
+            <input type="text" id="title" name="title" required placeholder="Enter blog title">
+        </div>
+
+        <!-- Category Input -->
+        <div>
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category" required placeholder="Enter blog category">
+        </div>
+
+        <!-- Date Input -->
+        <div>
+            <label for="date">Publish Date</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+
+        <!-- Image Upload -->
+        <div>
+            <label for="image">Upload Image</label>
+            <input type="file" id="image" name="image" accept="image/*">
+        </div>
+
+        <!-- Rich Text Editor -->
+        <div class="editor-container">
+            <label for="content">Blog Content</label>
+            <textarea id="content" name="content"></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <button type="submit">Publish</button>
+            <button type="button" class="cancel-btn" onclick="window.location.href='/home'">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Initialize TinyMCE editor
+    // Initialize TinyMCE editor on the textarea
+    tinymce.init({
+        selector: '#content',  // Target the textarea by id
+        plugins: 'lists link image',
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | link image',
+        menubar: false,
+        height: 300,
+        width: '100%',
+        content_style: 'body { font-family: Arial, sans-serif; font-size: 14px; }'  // Customize content style
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogging Website Registration</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+    <div class="container">
+        <!-- Image Section -->
+        <div class="image-side">
+            <img src="signUp.jpg" alt="Blogging" />
+        </div>
+        
+        <!-- Form Section -->
+        <div class="form-side">
+            <div class="registration-form">
+                <h2>Sign Up</h2>
+                <p>Share your ideas, stories, and become part of the community.</p>
+                
+
+                <form [formGroup]="regForm" (ngSubmit)="submitForm()">
+                
+                  <!-- full name error msg -->
+                  <div class="alert alert-danger alert-dismissible fade show p-2  mb-2" style="font-size: 20px;" role="alert"   *ngIf="msg['userName'].touched && msg['userName'].invalid">
+                   Please enter <strong>User Name</strong>
+                  </div>
+
+                  <!-- full name input -->
+                  <div class="form-group">
+                    <input type="text" id="name"  placeholder="User Name"   formControlName="userName"/>
+                </div>
+                
+                <!-- email error msg -->
+                <div class="alert alert-danger alert-dismissible fade show p-2  mb-2" style="font-size: 20px;" role="alert"   *ngIf="msg['email'].touched && msg['email'].invalid">
+                  Please enter <strong>Email address</strong>
+                </div>
+
+                <!-- <div class="alert alert-danger alert-dismissible fade show p-2  mb-2" style="font-size: 20px;" role="alert">
+                  Invalid <strong>Email address</strong>
+                </div> -->
+                <!-- email input -->
+                <div class="form-group">
+                        <input type="email" id="email" placeholder="Email Address"  formControlName="email"/>
+                </div>
+
+                
+                <!-- password error msg -->
+                  <div class="alert alert-danger alert-dismissible fade show p-2 mb-2" role="alert" 
+                    *ngIf="msg['password'].touched && msg['password'].invalid" style="font-size: 20px;">
+                      Please enter <strong>Password</strong> 
+                  </div>
+                  
+
+                  <!-- password error msg  -->
+                  <div class="alert alert-danger alert-dismissible fade show p-2 mb-2" role="alert"
+                    *ngIf="msg['password'].errors && msg['password'].errors['minlength']" style="font-size: 20px;">
+                      password <strong> maximum range is 6 </strong>
+                    </div>
+
+                    <!-- password input -->
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Password" formControlName="password" />
+                    </div>
+                    
+                    <!-- confirm password error msg -->
+                    <!-- <div class="alert alert-danger alert-dismissible fade show p-2 mb-2" role="alert" 
+                    *ngIf="msg['cPassword'].touched && msg['cPassword'].invalid" style="font-size: 20px;">
+                      Please enter your <strong> confirm password </strong>
+                    </div> -->
+
+                    <!-- confirm password error msg when confirm password and password does't match -->
+                    <!-- <div class="alert alert-danger alert-dismissible fade show p-2 mb-2" role="alert"
+                    *ngIf="msg['cPassword'].value!=msg['password'].value" style="font-size: 20px;">
+                  <strong>    password does't match </strong> 
+                    </div> -->
+
+                    <!-- confirm password input -->
+                    <!-- <div class="form-group">
+                        <input type="password" id="confirm-password" placeholder="Confirm Password"  formControlName="cPassword"/>
+                    </div> -->
+
+                    <!-- submit button -->
+                    <button type="submit" class="btn submit-btn"  [class.disabled]="regForm.invalid">Sign Up</button>
+                </form>
+                <!-- login password link -->
+                <p>Already have an account? <a href="#" routerLink="/login">Log In</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+    <div class="container">
+        <!-- Left Side Image -->
+         
+        <div class="image-side">
+            <!-- <img src="forget-pwd.jpg" alt="Login Image" /> -->
+        </div>
+        
+        <!-- Right Side Form -->
+        <div class="form-side">
+            <div class="login-form">
+                <h2>Forget Password</h2>
+                <p>Forget Password ?? Here is the soluation!!</p>
+                  
+                <div class="alert alert-danger alert-dismissible fade show p-2 " role="alert" 
+                  *ngIf="msg['email'].touched && msg['email'].invalid" style="font-size: 20px;">
+                    <strong>Please</strong> enter email address
+                  </div>
+            
+            
+                  
+                  
+                    <!-- forget password form -->
+                <form  [formGroup]="email"  (ngSubmit)="submitForm()">
+                    <div class="form-group">
+                        <input type="text" id="email"  placeholder="Email Address" formControlName="email">
+                    </div>
+                    <button type="submit" class="btn submit-btn mb-4" [class.disabled]="email.invalid">Submit</button>
+        
+                    <div class="forgot-password">
+                        <a href="#" routerLink="/login" style="font-size: 20px;">Sign In</a>
+                    </div>
+                </form>
+                <p>Don't have an account? <a href="#" routerLink="/registration">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

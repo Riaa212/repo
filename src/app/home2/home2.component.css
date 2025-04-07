@@ -1,0 +1,96 @@
+.container-blog {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Horizontal Cards Section */
+.horizontal-cards {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Card Styles */
+.blog {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 580px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.blog:hover {
+    transform: translateY(-5px);
+}
+
+/* Category Section */
+.blog .category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* On Hover, Show Category */
+.blog:hover .category {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.blog img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    width: 60%;
+    text-align: left;
+}
+
+.card-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-content p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.btn-read-more {
+    text-decoration: none;
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.btn-read-more:hover {
+    color: #e67e22;
+}

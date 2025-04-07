@@ -1,0 +1,41 @@
+<br><br>
+<section class="horizontal-cards">
+    <div class="container">
+        <h2 class="section-title">Your Posts</h2>
+        <div class="cards-wrapper">
+            <div class="card" *ngFor="let blog of Blogs">
+                <div class="category">{{blog.category.categoryName}}</div>
+                <!-- <img src="place.jpg" alt="Card Image 1"> -->
+                <div class="card-content">
+                    <h3>{{blog.title}}</h3>
+                    <p>{{blog.content}}</p>
+                    <a href="#" class="btn-read-more">View</a> &nbsp;
+                    <a href="#" class="btn-update" routerLink="/updateBlog">Update</a> &nbsp;
+                    <a  class="btn-delete"  (click)="deleteBlogById(blog.id)" routerLink="/blogs">Delete</a>
+                    <br><br> 
+                    <p class="card-text" style="font-size: 16px;">Created At : <small class="text-muted">{{blog.createdAt | date}}</small></p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago
+                      {{blog.createdAt | date: 'shortTime'}}
+                    </small></p>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation example" class="page" >
+        <ul class="pagination d-flex justify-content-center">
+          <li class="page-item">
+          <button type="submit" (click)="Onprevious()" class="btn onPrevious-btn" [class.disabled]="pageIndex == 0">
+            Previous
+          </button>
+        </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+          <button type="submit" class="btn onNext-btn" (click)="OnNext()">
+            Next
+          </button>
+          </li>
+        </ul>
+      </nav>
+ </section>

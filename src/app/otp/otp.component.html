@@ -1,0 +1,43 @@
+<br><br><br><br><br><br><br>
+<div class="container mt-5" style="max-width: 500px;">
+  <div class="card shadow p-4 border-0 rounded-4">
+    <h4 class="mb-4 text-center">Forgot Password</h4>
+
+    <!-- Email Input Form -->
+    <form (ngSubmit)="sendOtp()" *ngIf="!otpSent">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+      <button type="submit" class="btn w-100 text-light" style="background-color:  rgba(0, 0, 0, 0.7);">Send OTP</button>
+    </form>
+
+    <!-- OTP Input Form -->
+    <form (ngSubmit)="verifyOtp()" *ngIf="otpSent">
+      <div class="alert alert-success text-center py-2" role="alert">
+        OTP has been sent to <strong>{{ email }}</strong>
+      </div>
+      <div class="mb-3">
+        <label for="otp" class="form-label">Enter OTP</label>
+        <input
+          type="text"
+          [(ngModel)]="otp"
+          name="otp"
+          class="form-control"
+          id="otp"
+          placeholder="Enter OTP"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-success w-100">Verify OTP</button>
+    </form>
+  </div>
+</div>

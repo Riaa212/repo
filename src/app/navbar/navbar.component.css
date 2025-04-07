@@ -1,0 +1,31 @@
+/* a .nav-link{
+    color: white;
+    
+} */
+/* .navbar-dark .nav-item .nav-link {
+    color: #fff;
+  }
+  
+  .navbar-dark .nav-item .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    border-radius: 0.25rem;
+    color: #fff;
+  }
+  
+  .fa-li {
+    position: relative;
+    left: 0;
+  } */
+
+.nav-link{
+  font-size: 20px;
+  font-weight: 500;
+}
+.nav-item:hover{
+  border-bottom: 3px solid black;
+  border-radius: 5px;
+  /* background-color: black; */
+  color: white;
+
+}

@@ -1,0 +1,56 @@
+<section class="horizontal-cards">
+   <div class="container">
+       <h2 class="section-title">Your Posts</h2>
+       <div class="cards-wrapper">
+           <!-- Card 1 -->
+           <div class="card">
+               <div class="category">Travelling</div>
+               <img src="place.jpg" alt="Card Image 1">
+               <div class="card-content">
+                   <h3>Blog Post Title 1</h3>
+                   <p>Learn the fundamentals of creating engaging blog posts that drive traffic and convert readers.</p>
+                   <a href="#" class="btn-read-more">View</a> &nbsp;
+                   <a href="#" class="btn-update">Update</a> &nbsp;
+                   <a href="#" class="btn-delete">Delete</a> 
+               </div>
+           </div>
+
+           <!-- Card 2 -->
+           <div class="card">
+               <div class="category">Food</div>
+               <img src="food.jpg" alt="Card Image 2">
+               <div class="card-content">
+                   <h3>Blog Post Title 2</h3>
+                   <p>Tips and tricks for optimizing your blog posts to rank higher on search engines and attract more readers.</p>
+                   <a href="#" class="btn-read-more">View</a> &nbsp;
+                   <a href="#" class="btn-update">Update</a> &nbsp;
+                   <a href="#" class="btn-delete">Delete</a> 
+                     <!-- <a href="#" class="read-more">Read More</a> -->
+               </div>
+           </div>
+
+           <!-- Card 3 -->
+           <div class="card">
+               <div class="category">Technology</div>
+               <img src="technology.jpg" alt="Card Image 3">
+               <div class="card-content">
+                   <h3>Blog Post Title 3</h3>
+                   <p>How to increase engagement on your blog and turn your content into a community-driven platform.</p>
+                   
+                   <a href="#" class="btn-read-more">View</a> &nbsp;
+                   <a href="#" class="btn-update">Update</a> &nbsp;
+                   <a href="#" class="btn-delete">Delete</a> 
+               </div>
+           </div>
+       </div>
+   </div>
+   <nav aria-label="Page navigation example" class="page">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+</section>

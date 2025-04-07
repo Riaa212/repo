@@ -1,0 +1,131 @@
+ <br><br><br><br>
+<br><br><br>
+  <!-- <form [formGroup]="blogForm" (ngSubmit)="submitBlog()">
+    <p>
+
+    </p>
+    <p>
+    <input formControlName="title" placeholder="Blog Title" />
+   </p>
+   <p>
+    <textarea formControlName="content" placeholder="Blog Content"></textarea>
+  </p>
+  <p>
+    <input type="file" (change)="onFilesSelected($event)" multiple />
+  </p>
+  <p>
+    <input list="categoryList" class="form-control" placeholder="Type to Search category."/>
+    <datalist id="categoryList" >
+      <option *ngFor="let c of category" [value]="c.categoryName"></option>
+    </datalist>
+  </p>
+    <button type="submit"> Create Blog</button>
+  </form> -->
+  
+  <!-- Show uploaded preview -->
+  <!-- <div *ngFor="let img of previewImages">
+    <img [src]="img" width="150" />
+  </div> -->
+  
+  
+  <br><br><br>
+  <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+
+
+
+    <editor formControlName="content" [init]="tinyMceConfig" apiKey="dtufsuchucxcn00tqh12uf73wlwuf7nslho4yf8sdqlk9ypj"></editor>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Search by category -->
+  <!-- <form [formGroup]="blogForm" (ngSubmit)="searchCategory()">
+    <input type="text" formControlName="SearchCategory">
+    <button type="submit">Search Category</button>
+  </form>
+
+  <div *ngFor="let allBlogs of allBlogsByCategory">
+    <p>
+      <b>Title:</b>
+    {{allBlogs.title}}
+    </p>
+    <p>
+      <b>Content:</b>
+    {{allBlogs.content}}
+    </p>
+    <p>
+      <b>Category:</b>
+      {{allBlogs.category.categoryName}}
+    </p>
+    <p>
+      <b>commets:</b>
+      {{allBlogs.comments}}
+    </p>
+    <p>
+      <img [src]="allBlogs.imageUrls" height="200" width="200" alt="">
+    </p>
+  </div> -->
+  <!-- Search by category end -->
+
+  <!-- { "id": 4, 
+  "title": "Flavors of Gujarat: A Culinary Journey",
+   "content": "From the sweetness of Gujarati Dhokla to the tangy Undhiyu, Gujarat's food is a perfect blend of taste and tradition. Don’t miss out on snacks like Khandvi, Fafda-Jalebi, and a full Gujarati Thali!",
+   "blogstatus": null,
+   "user_id": 1, 
+  "category": { "id": 2, "categoryName": "Food" },
+   "comments": [], 
+  "imageUrls": [ "http://localhost:8088/uploads/f8dbc518-0d43-4e45-9672-8841902d6d6b_food.jpg" ] } -->
+<!-- 
+  {{category | json}} -->
+  
+  <!-- <form [formGroup]="blogForm">
+    <div class="position-relative w-100 mb-3">
+      <label for="categoryInput" class="form-label">Select Category</label>
+      <input
+        id="categoryInput"
+        type="text"
+        class="form-control"
+        placeholder="Search category..."
+        formControlName="SearchCategory"
+        (input)="onSearch()"
+       (focus)="showDropdown = true"
+        autocomplete="off"
+      />
+  
+      <ul
+        class="dropdown-menu show w-100 mt-0"
+        *ngIf="showDropdown && filteredCategories.length"
+        style="max-height: 200px; overflow-y: auto;"
+      >
+        <li *ngFor="let cat of filteredCategories">
+          <a class="dropdown-item" href="#" (mousedown)="selectCategory(cat)">
+            {{ cat }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </form> -->
+  

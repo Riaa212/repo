@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogging Website</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>My Blog</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to My Blog</h2>
+            <p>Explore the world of blogging with tips, tutorials, and latest trends.</p>
+            <a href="#" class="btn-primary">Start Reading</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <section class="featured-post">
+                <h2>Featured Article</h2>
+                <article>
+                    <img src="food.jpg" alt="Featured Post" class="featured-img" style=" width: 100%;
+                    height: 200px;
+                    object-fit: cover;">
+                    <!-- <div class="post-content">
+                        <h3><a href="#">How to Build a Successful Blog in 2025</a></h3>
+                        <p>Learn the secrets to growing your blog and making it a full-time income source...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div> -->
+                </article>
+            </section>
+
+            <section class="recent-posts">
+                <h2>Recent Posts</h2>
+                <div class="posts-list">
+                    <article class="post-item">
+                        <img src="technology.jpg" alt="Post 1">
+                        <div class="post-content">
+                            <h3><a href="#">10 Tips for Writing Compelling Content</a></h3>
+                            <p>A step-by-step guide to writing engaging blog posts that keep readers hooked...</p>
+                        </div>
+                    </article>
+                    <article class="post-item">
+                        <img src="food.jpg" alt="Post 2">
+                        <div class="post-content">
+                            <h3><a href="#">SEO Strategies for 2025: What Works Now?</a></h3>
+                            <p>Discover the latest SEO trends and how to optimize your blog posts for better rankings...</p>
+                        </div>
+                    </article>
+                    <article class="post-item">
+                        <img src="music.jpg" alt="Post 3">
+                        <div class="post-content">
+                            <h3><a href="#">The Best Tools for Blog Management</a></h3>
+                            <p>From content planning to analytics, here are the top tools every blogger should use...</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Popular Posts -->
+            <section class="popular-posts">
+                <h2>Popular Posts</h2>
+                <div class="posts-list">
+                    <article class="post-item">
+                        <img src="music.jpg" alt="Popular Post 2">
+                        <div class="post-content">
+                            <h3><a href="#">Content Marketing Strategies for Beginners</a></h3>
+                        </div>
+                    </article>
+                    <article class="post-item">
+                        <img src="place.jpg" alt="Popular Post 1">
+                        <div class="post-content">
+                            <h3><a href="#">The Ultimate Guide to Blogging in 2025</a></h3>
+                        </div>
+                    </article>
+
+                    <article class="post-item">
+                        <img src="music.jpg" alt="Popular Post 2">
+                        <div class="post-content">
+                            <h3><a href="#">Content Marketing Strategies for Beginners</a></h3>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
+            </div>
+            <p>&copy; 2025 My Blog | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+===================================================================================
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & Container */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header .logo h1 {
+    font-size: 36px;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+header nav ul {
+    list-style: none;
+    text-align: right;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+header nav ul li a:hover {
+    color: #f39c12;
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(0,0,0.2,0.4),rgba(0,0,0.2,0.4)), url(/Bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero .btn-primary {
+    background-color: #f39c12;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.hero .btn-primary:hover {
+    background-color: #e67e22;
+}
+
+/* Featured Post */
+.featured-post {
+    margin-top: 40px;
+}
+
+.featured-post h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.featured-post .featured-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.featured-post .post-content {
+    padding: 20px;
+}
+
+.featured-post .post-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.featured-post .post-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.featured-post .read-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.featured-post .read-more:hover {
+    background-color: #e67e22;
+}
+
+/* Recent Posts */
+.recent-posts h2, .popular-posts h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.posts-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.post-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 32%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.post-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-item .post-content {
+    padding: 20px;
+}
+
+.post-item .post-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.post-item .post-content p {
+    font-size: 14px;
+    color: #777;
+}
+
+.post-item .post-content a {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.post-item .post-content a:hover {
+    text-decoration: underline;
+}
+
+/* Newsletter */
+.newsletter {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.newsletter form {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.newsletter input {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: #e67e22;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer .social-media a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-media a:hover {
+    color: #f39c12;
+}

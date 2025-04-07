@@ -1,0 +1,157 @@
+=================================================================
+html
+=================================================================
+<section class="horizontal-cards">
+    <div class="container">
+        <h2 class="section-title">Featured Posts</h2>
+        <div class="cards-wrapper">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="category">Category 1</div>
+                <img src="card-image1.jpg" alt="Card Image 1">
+                <div class="card-content">
+                    <h3>Blog Post Title 1</h3>
+                    <p>Learn the fundamentals of creating engaging blog posts that drive traffic and convert readers.</p>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="category">Category 2</div>
+                <img src="card-image2.jpg" alt="Card Image 2">
+                <div class="card-content">
+                    <h3>Blog Post Title 2</h3>
+                    <p>Tips and tricks for optimizing your blog posts to rank higher on search engines and attract more readers.</p>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="category">Category 3</div>
+                <img src="card-image3.jpg" alt="Card Image 3">
+                <div class="card-content">
+                    <h3>Blog Post Title 3</h3>
+                    <p>How to increase engagement on your blog and turn your content into a community-driven platform.</p>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+=================================================================
+css
+=================================================================
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Horizontal Cards Section */
+.horizontal-cards {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.cards-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Card Styles */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Category Section */
+.card .category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* On Hover, Show Category */
+.card:hover .category {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.card img {
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    width: 60%;
+    text-align: left;
+}
+
+.card-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-content p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.btn-read-more {
+    text-decoration: none;
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.btn-read-more:hover {
+    color: #e67e22;
+}

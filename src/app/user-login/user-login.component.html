@@ -1,0 +1,65 @@
+<br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+    <div class="container">
+        <!-- Left Side Image -->
+         
+        <div class="image-side">
+            <img src="signIn.jpg" alt="Login Image" />
+        </div>
+        
+        <!-- Right Side Form -->
+        <div class="form-side">
+            <div class="login-form">
+                <h2>Login to Your Account</h2>
+                <p>Welcome back! Please login to continue</p>
+                <!-- <div class="alert alert-warning alert-dismissible fade show p-2" role="alert"
+                *ngIf="msg['email'].touched && msg['email'].invalid">
+                    <strong class="text-danger">Please enter email id</strong> 
+                    <button type="button" class="close btn" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div> -->
+                  <div class="alert alert-danger alert-dismissible fade show p-2 mb-2" role="alert" 
+                  *ngIf="msg['email'].touched && msg['email'].invalid" style="font-size: 20px;">
+                    Please enter <strong>email address</strong>
+                  </div>
+                <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+                    <!-- email error input -->
+                    <div class="form-group">
+                        <input type="text" id="email"  placeholder="Email Address" formControlName="email"
+                        [class.is-invalid]="msg['email'].touched && msg['email'].invalid">
+                    </div>
+
+                    <!-- password error msg -->
+                    <div class="alert alert-danger alert-dismissible fade show p-2 mb-2" role="alert"
+                    *ngIf="msg['password'].touched && msg['password'].invalid" style="font-size: 20px;">
+                      Please enter <strong>password </strong>
+                    </div>
+
+                    <!-- password input  -->
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Password" formControlName="password" />
+                    </div>
+
+                    <button type="submit" class="btn submit-btn"  [class.disabled]="loginForm.invalid">Login</button>
+                 
+                    <!-- forget password btn -->
+                    <div class="forgot-password">
+                        <a href="#" routerLink="/otp">Forgot Password?</a>
+                    </div>
+
+                </form>
+                <p>Don't have an account? <a href="#" routerLink="/registration">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

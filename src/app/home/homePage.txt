@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogging Website</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+</body>
+</html>
+======================================================================================================================================
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & Container */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header .logo h1 {
+    font-size: 36px;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+header nav ul {
+    list-style: none;
+    text-align: right;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+header nav ul li a:hover {
+    color: #f39c12;
+}
+
+/* Featured Post */
+.featured-post {
+    margin-top: 40px;
+}
+
+.featured-post h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.featured-post .featured-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.featured-post .post-content {
+    padding: 20px;
+}
+
+.featured-post .post-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.featured-post .post-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.featured-post .read-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.featured-post .read-more:hover {
+    background-color: #e67e22;
+}
+
+/* Recent Posts */
+.recent-posts h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.posts-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 32%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-item .post-content {
+    padding: 20px;
+}
+
+.post-item .post-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.post-item .post-content p {
+    font-size: 14px;
+    color: #777;
+}
+
+.post-item .post-content a {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.post-item .post-content a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
