@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  isloggedin():boolean{
+    return sessionStorage.getItem('token') != null;
+  }
 }

@@ -15,24 +15,27 @@ import { CategoryServiceService } from '../../services/category-service.service'
 export class ViewBlogComponent
  {
 
-  tinyMceConfig: any = {
-    height: 400,
-    plugins: [
-      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link',
-      'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
-      'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed',
-      'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable',
-      'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments',
-      'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography',
-      'inlinecss', 'markdown', 'importword', 'exportword', 'exportpdf'
-    ],
-    toolbar:
-      'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | ' +
-      'link image media | alignleft aligncenter alignright alignjustify | ' +
-      'outdent indent | numlist bullist checklist | emoticons charmap | removeformat',
-    menubar: 'file edit view insert format tools table help',
-    branding: false
-  };
+  filePickerCallback(callback: any, value: any, meta: any) {
+    if (meta.filetype === 'image') {
+      // Open file browser to select an image (this will trigger a file input dialog)
+      const input = document.createElement('input');
+      input.setAttribute('type', 'file');
+      input.setAttribute('accept', 'image/*');
+      input.addEventListener('change', (event: any) => {
+        const file = event.target.files[0];
+ 
+        // Ensure the file is an image
+        if (file && file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = function (e: any) {
+            callback(e.target.result, { alt: file.name });
+          };
+          reader.readAsDataURL(file); // Convert the file to base64
+        }
+      });
+      input.click(); // Trigger the file input dialog
+    }
+  }
   
   blogForm: FormGroup;
   selectedFiles: File[] = [];

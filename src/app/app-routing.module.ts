@@ -14,12 +14,16 @@ import { ForgetPwdComponent } from './forget-pwd/forget-pwd.component';
 import { AllBlogsComponent } from './blog/all-blogs/all-blogs.component';
 import { ProfileComponent } from './User/profile/profile.component';
 import { OtpComponent } from './otp/otp.component';
+import { authGraudGuard } from './auth-graud.guard';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'home1',component:Home1Component},
   {path:'home2',component:Home2Component},
-  {path:'profile',component:ProfileComponent},
+  {path:'profile',
+    component:ProfileComponent,
+    canActivate:[authGraudGuard]
+  },
   {path:'registration',component:RegistrationComponent},
   {path:'login',component:UserLoginComponent},
   {path:'forgetPassword',component:ForgetPwdComponent},
@@ -28,6 +32,7 @@ const routes: Routes = [
   {path:'Blogs',component:ViewBlogComponent},
   {path:'createBlog',component:CreateBlogComponent},
   {path:'allBlogs',component:AllBlogsComponent,
+    canActivate:[authGraudGuard],
     children:[
       {path:'viewBlog',component:ViewBlogComponent},
       {path:'createBlog',component:CreateBlogComponent},

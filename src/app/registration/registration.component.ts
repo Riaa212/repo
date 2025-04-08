@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../model/user';
 import { UserServiceService } from './../services/user-service.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -19,6 +20,7 @@ export class RegistrationComponent implements OnInit
   //   })
   // }
   
+  route=inject(Router)
   regForm:FormGroup
   users:User=new User();
   constructor(fb:FormBuilder,public userService:UserServiceService ,public http:HttpClient)
@@ -48,6 +50,8 @@ export class RegistrationComponent implements OnInit
     //   }
     // ).subscribe((res)=>res)
     this.userService.RegisterUser(this.regForm.value).subscribe()
+    alert('register successfully..')
+    this.route.navigate(['/login'])
   }
 
   get msg()

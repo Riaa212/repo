@@ -37,9 +37,9 @@
   
         <ul class="navbar-nav mb-2 mb-lg-0">
           <button type="button" class="btn w-auto p-2">
-          <a href="#" class="nav-link" routerLink="registration" style="color: #f39c12;font-weight: 500;">Registration</a></button>
+          <a href="#" class="nav-link" routerLink="registration" style="color: #f39c12;font-weight: 500;" *ngIf="!isloggedin()">Registration</a></button>
             &nbsp;&nbsp;
-          <button type="button" class="btn w-auto p-2">
+          <button type="button" class="btn w-auto p-2" *ngIf="!isloggedin()">
           <a href="#" class="nav-link" style="color: #f39c12;font-weight: 500;" routerLink="login">Login</a></button>
           <!-- <li class="nav-item">
             <a class="nav-link" href="#">CHILDREN</a>

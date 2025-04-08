@@ -4,13 +4,12 @@
     <h4 class="mb-4 text-center">Forgot Password</h4>
 
     <!-- Email Input Form -->
-    <form (ngSubmit)="sendOtp()" *ngIf="!otpSent">
+    <form  [formGroup]="forgetpwdData" (ngSubmit)="sendOtp()" *ngIf="!otpSent">
       <div class="mb-3">
         <label for="email" class="form-label">Email Address</label>
         <input
           type="email"
-          [(ngModel)]="email"
-          name="email"
+        formControlName="email"
           class="form-control"
           id="email"
           placeholder="Enter your email"
@@ -23,7 +22,7 @@
     <!-- OTP Input Form -->
     <form (ngSubmit)="verifyOtp()" *ngIf="otpSent">
       <div class="alert alert-success text-center py-2" role="alert">
-        OTP has been sent to <strong>{{ email }}</strong>
+        OTP has been sent to <strong>{{ forgetpwdData.value.email }}</strong>
       </div>
       <div class="mb-3">
         <label for="otp" class="form-label">Enter OTP</label>
@@ -41,3 +40,4 @@
     </form>
   </div>
 </div>
+<p>{{otp | json}}</p>

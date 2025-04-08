@@ -33,7 +33,41 @@
 
 
 
-    <editor formControlName="content" [init]="tinyMceConfig" apiKey="dtufsuchucxcn00tqh12uf73wlwuf7nslho4yf8sdqlk9ypj"></editor>
+    <!-- <editor formControlName="content" [init]="tinyMceConfig" apiKey="dtufsuchucxcn00tqh12uf73wlwuf7nslho4yf8sdqlk9ypj"></editor> -->
+
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <editor
+        apiKey="dtufsuchucxcn00tqh12uf73wlwuf7nslho4yf8sdqlk9ypj"
+        [(ngModel)]="blogModel"
+        name="content"
+        [init]="{
+          height: 500,
+          menubar: true,
+          plugins:
+            'lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
+          toolbar:
+            'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | preview code',
+          image_advtab: true,
+          file_picker_callback: filePickerCallback
+        }"
+      ></editor>
+
+    <!-- <editor
+    apiKey="6ebiz424anp8t8icvj6vcdbm8soqm0w628h43dd4php6spi1"
+    [(ngModel)]="postContent"
+    name="content"
+    [init]="{
+      height: 500,
+      menubar: true,
+      plugins:
+        'lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
+      toolbar:
+        'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | preview code',
+      image_advtab: true,
+
+    }" -->
+  <!-- ></editor> -->
 
 
 
