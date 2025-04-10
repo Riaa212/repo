@@ -24,4 +24,22 @@ export class ForgetPwdService {
     // .pipe(tap((response: any) => console.log('API Response:', response)),
    }
 
+   verifyOtp(user:User):Observable<User>
+   {
+    console.log("verify otp....")
+    return this.http.post<User>(this.baseurl+"/resetpassword",user,{responseType:'json'}
+      
+      // {
+      //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      // },
+      
+    );
+   }
+
+
 }
+// const headers = new HttpHeaders().set('Content-Type', 'application/json');
+// this.http.post('http://localhost:4200/user/userOtp', body, { headers })
+//   .subscribe(response => {
+//     console.log(response);
+//   });

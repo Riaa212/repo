@@ -18,6 +18,8 @@ export class ProfileComponent {
     // console.log( this.storage.getLoginData('logindata'))
     this.route.navigate(['/login'])
   }
+
+  
   // constructor()
   // {
   //  let log=this.storage.getLoginData('logdata')

@@ -5,6 +5,9 @@
 
     <!-- Email Input Form -->
     <form  [formGroup]="forgetpwdData" (ngSubmit)="sendOtp()" *ngIf="!otpSent">
+      <div class="alert alert-danger" *ngIf="emailnotExist==false">
+      {{error}}
+      </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email Address</label>
         <input
@@ -20,7 +23,7 @@
     </form>
 
     <!-- OTP Input Form -->
-    <form (ngSubmit)="verifyOtp()" *ngIf="otpSent">
+    <form [formGroup]="forgetpwdData" (ngSubmit)="verifyOtp()" *ngIf="otpSent">
       <div class="alert alert-success text-center py-2" role="alert">
         OTP has been sent to <strong>{{ forgetpwdData.value.email }}</strong>
       </div>
@@ -28,7 +31,7 @@
         <label for="otp" class="form-label">Enter OTP</label>
         <input
           type="text"
-          [(ngModel)]="otp"
+          [value]="otp"
           name="otp"
           class="form-control"
           id="otp"
@@ -36,8 +39,21 @@
           required
         />
       </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Enter password</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          id="password"
+          placeholder="Enter password"
+          required
+          formControlName="password" />
+      </div>
       <button type="submit" class="btn btn-success w-100">Verify OTP</button>
     </form>
   </div>
 </div>
-<p>{{otp | json}}</p>
+<!-- <p >{{otp | json}}</p> -->
+<!-- {{val | json}} -->
+ <p>{{users | json}}</p>

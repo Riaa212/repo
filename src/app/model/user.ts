@@ -4,5 +4,6 @@ export class User {
         public password?:any,
         public email?:any,
         public createdAt?:any,
-        public updateAt?:any){}
+        public updateAt?:any,
+        public otp?:any){}
 }
