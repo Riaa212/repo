@@ -10,7 +10,7 @@
             <img src="profile.jpg" alt="User Image" class="profile-image">
           </div>
           <div class="col-md-7  p-2">
-            <h2>Hello John</h2>
+            <h2>Hello {{userData.userName}}</h2>
             <br>
             <div class="mb-3">
               <label for="formFile" class="form-label">Update Photo</label>
@@ -25,20 +25,20 @@
           <!-- Edit Profile Form -->
           <div class="form-container">
             <h3>Edit Profile</h3>
-            <form>
+            <form [formGroup]="userFormData" (ngSubmit)="updateProfile()">
               <div class="mb-3">
                 <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="name" value="John Wiiliam">
+                <input type="text" class="form-control" id="name" [(ngModel)]="userData.userName" formControlName="userName">
               </div>
 
               <div class="mb-3">
                 <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" value="john78@example.com">
+                <input type="email" class="form-control" id="email" [(ngModel)]="userData.email"  formControlName="email">
               </div>
 
               <div class="mb-3">
                 <label for="bio" class="form-label">Bio</label>
-                <textarea class="form-control" id="bio" rows="4">A passionate blogger and tech enthusiast sharing knowledge about the latest trends in web development.</textarea>
+                <textarea class="form-control" id="bio" rows="4" [(ngModel)]="userData.bio" formControlName="bio"></textarea>
               </div>
 
               <!-- <div class="mb-3">
@@ -61,3 +61,6 @@
       </div>
     </div>
   </div>
+  <p>
+    {{userData | json}}
+ </p>

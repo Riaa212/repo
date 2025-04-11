@@ -16,9 +16,13 @@ export class OtpComponent {
   emailnotExist:boolean=true
 
   forgetpwdservice=inject(ForgetPwdService)
+  
   val:User[]=[]
+
   forgetpwdData:FormGroup
+
   // email: string = '';
+  
   otp: string = '';
 
   otpSent: boolean = false;
@@ -33,7 +37,9 @@ export class OtpComponent {
 
   sendOtp() {
     // if (!this.email) return;
-    this.forgetpwdservice.generateOtp(this.forgetpwdData.value.email).subscribe((rs)=>{
+    console.log("send otp email===>"+this.forgetpwdData.value.email)
+    this.forgetpwdservice.generateOtp(this.forgetpwdData.value.email).subscribe(
+      (rs)=>{
       
       // console.log("rs==>"+this.otp)
       if(rs!=null)

@@ -1,6 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { LoginStorageService } from '../../login-storage.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { User } from '../../model/user';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -10,15 +13,54 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent {
 
+  useremail:any
+  userData:any
   storage=inject(LoginStorageService)
   route=inject(Router)
   
+  userFormData:any
+
+  baseUrl="/user"
+
+  constructor(public http:HttpClient,fb:FormBuilder)
+  {
+
+    this.userFormData=fb.group({
+      userName:['',Validators.required],
+      // password:['',Validators.required],
+      email:['',Validators.required],
+      bio:['',Validators.required]
+    })
+
+    //get user details for user profile
+    this.useremail=this.storage.getLoginData("uname")
+    this.storage.getLoginData("token")
+    http.get(this.baseUrl+"/getUserByEmail/"+this.useremail).subscribe((rs)=>this.userData=rs)
+    console.log("userData===>"+this.userData)
+  }
+
+  getUserDetails()
+  {
+    this.storage.getLoginData("token")
+    // console.log(this.userData+"user data===>")
+  }
+
   logout(){
     this.storage.removeData("token")
+    this.storage.removeData("uname")
     // console.log( this.storage.getLoginData('logindata'))
     this.route.navigate(['/login'])
   }
 
+
+  updateProfile()
+  {
+    // console.log("update user Id==>"+this.userData.id)
+    this.http.put(this.baseUrl+"/update/"+this.userData.id,this.userFormData.value).subscribe((rs)=>{
+      this.userData=rs
+    })
+    // this.storage.getLoginData("token")
+  }
   
   // constructor()
   // {

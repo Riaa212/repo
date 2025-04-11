@@ -42,8 +42,10 @@ export class UserLoginComponent
     this.userLoginService.login(loginData).subscribe((rs)=>{
       sessionStorage.setItem('token', rs.tocken) 
       if (rs && rs.tocken) {
+        console.log(rs.userName)
          console.log('token:', rs.tocken);
-         sessionStorage.setItem('token', rs.tocken);  // Store the token in localStorage
+         sessionStorage.setItem('token', rs.tocken); 
+         sessionStorage.setItem('uname',rs.userName) // Store the token in localStorage
          this.r.navigate(['/profile']);  // Navigate to the admin page
        } else {
          console.error('Token not found in the response');

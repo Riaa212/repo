@@ -20,7 +20,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { Home1Component } from './home1/home1.component';
 import { Home2Component } from './home2/home2.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ForgetPwdComponent } from './forget-pwd/forget-pwd.component';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
@@ -31,6 +31,7 @@ import { SearchBlogComponent } from './blog/search-blog/search-blog.component';
 // import { ForgetPwdComponent } from './User/forget-pwd/forget-pwd.component';
 // import { SearchBlogComponent } from './search-blog/search-blog.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { loggingInterceptor } from './Interceptor/interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,9 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     FormsModule,
     EditorModule,
   ],
-  providers: [provideNativeDateAdapter()],
+  providers: [provideNativeDateAdapter(),
+    { provide: HTTP_INTERCEPTORS, useClass: loggingInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,9 +11,15 @@ export class loggingInterceptor implements HttpInterceptor{
         {
             console.log('in interceptor....')
         }
+
         loginService=inject(LoginStorageService)
         intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-            let currentUser = this.loginService.getLoginData('token');  // Method to get the JWT token
+            let currentUser = this.loginService.getLoginData('token');
+            // let currentUserEmail = this.loginService.getLoginData('uname'); 
+            // console.log("current user email==>"+currentUserEmail)
+             // Method to get the JWT token
+             console.log("in interceptor...");
+             
             if (currentUser) {
               request = request.clone({
                 setHeaders: {

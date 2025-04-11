@@ -9,6 +9,7 @@ import { User } from './model/user';
 export class ForgetPwdService {
 
   baseurl="/user"
+
   constructor(public http:HttpClient) {
 
    }
@@ -27,12 +28,13 @@ export class ForgetPwdService {
    verifyOtp(user:User):Observable<User>
    {
     console.log("verify otp....")
-    return this.http.post<User>(this.baseurl+"/resetpassword",user,{responseType:'json'}
-      
+    return this.http.post<User>(this.baseurl+"/resetpassword",user,
+      {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      }
       // {
       //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
       // },
-      
     );
    }
 
