@@ -31,6 +31,7 @@ const routes: Routes = [
   {path:'otp',component:OtpComponent},
   {path:'Blogs',component:ViewBlogComponent},
   {path:'createBlog',component:CreateBlogComponent},
+  
   {path:'allBlogs',component:AllBlogsComponent,
     canActivate:[authGraudGuard],
     children:[

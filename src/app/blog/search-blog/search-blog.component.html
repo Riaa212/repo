@@ -3,9 +3,11 @@
 <div class="container-fuild p-5">
     <div class="row">
         <div class="col-md-8">
+          <h4><b>Search Blogs</b></h4>
             <input type="text" [formControl]="searchControl" placeholder="Search blogs..." class="form-control mb-2">
         </div>
         <div class="col-md-4">
+            <p><b>Category</b></p>
             <select [formControl]="categoryControl" class="form-control mb-3">
                 <option value="">All Categories</option>
                 <option *ngFor="let category of getUniqueCategories()" [value]="category">{{ category }}</option>
