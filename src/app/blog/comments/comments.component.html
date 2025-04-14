@@ -138,11 +138,27 @@
     <p>{{u.value.toUpperCase}}</p>
   </div> -->
   <!-- {{userData | json}} -->
-
+<br><br><br>
+  <div class="replies ms-4 mt-3" >
+    <div class="reply-card" >
+      <div class="d-flex justify-content-between">
+        <!-- <div> -->
+          <!-- <strong class="text-success"></strong>
+          <p class="mb-0"></p> -->
+          <p>Add comment</p>
+          <input type="text" class="form-control form-control-lg w-100 m-2" >
+        <!-- </div> -->
+        <button class="btn btn-sm btn-danger text-light">
+           X
+        </button>
+      </div>
+    </div>
+  </div> 
   <!-- <body> -->
     <div class="container-fuild p-5">
       <div class="blog-view mx-auto shadow p-4 p-md-5 rounded-4 bg-white" style="max-width: 900px;">
-  
+        <button class="btn btn-link"><a href="/allBlogs">Back To your Blogs</a></button>
+        <br><br>
         <!-- Category -->
         <span class="badge rounded-pill bg-success px-3 py-2 mb-3 text-uppercase">
         {{blogData.category.categoryName}}

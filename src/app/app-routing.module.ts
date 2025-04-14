@@ -33,12 +33,12 @@ const routes: Routes = [
   {path:'Blogs',component:ViewBlogComponent},
   {path:'createBlog',component:CreateBlogComponent},
   {path:'comment/:id',component:CommentsComponent},
+  {path:'updateBlog/:id',component:UpdateBlogComponent},
   {path:'allBlogs',component:AllBlogsComponent,
     canActivate:[authGraudGuard],
     children:[
       {path:'viewBlog/:id',component:ViewBlogComponent},
-      {path:'createBlog',component:CreateBlogComponent},
-      {path:'updateBlog',component:UpdateBlogComponent}
+      {path:'createBlog',component:CreateBlogComponent}
     ]
   },
   // {path: '', redirectTo: 'home', pathMatch: 'full' },

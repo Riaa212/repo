@@ -16,15 +16,14 @@
                 <div class="card-content">
                     <h3>{{blog.title}}</h3>
                     <p>{{blog.content}}</p>
-                    <a href="#" class="btn-read-more" routerLink="/viewBlog/{{blog.id}}">View</a> &nbsp;
-                    <a href="#" class="btn-update" routerLink="/updateBlog">Update</a> &nbsp;
+                    <a href="#" class="btn-read-more"  [routerLink]="['/comment', blog.id]">View</a> &nbsp;
+                    <a href="#" class="btn-update" [routerLink]="['/updateBlog', blog.id]">Update</a> &nbsp;
                     <a  class="btn-delete"  (click)="deleteBlogById(blog.id)" routerLink="/blogs">Delete</a>
-                    
                     <p>
-                    <a  class="btn btn-link" [routerLink]="['/comment', blog.id]">
+                    <!-- <a  class="btn btn-link" [routerLink]="['/comment', blog.id]">
                     
                       Comments: {{blog.totalComments}}
-                    </a>
+                    </a> -->
                       <!-- <span class="badge rounded-pill bg-primary">Comments{{blog.totalComments}}</span></a> -->
                     </p>
                     <br><br> 

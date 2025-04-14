@@ -13,6 +13,7 @@ export class loggingInterceptor implements HttpInterceptor{
         }
 
         loginService=inject(LoginStorageService)
+        
         intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
             let currentUser = this.loginService.getLoginData('token');
             // let currentUserEmail = this.loginService.getLoginData('uname'); 

@@ -1,3 +1,47 @@
 <!-- <app-navbar></app-navbar> -->
 <br><br><br>
-<p>update</p>
+<!-- {{blogData | json}} -->
+<div class="container-fuild p-5">
+    <div class="blog-view mx-auto shadow p-4 p-md-5 rounded-4 bg-white" style="max-width: 900px;">
+      <button class="btn btn-link"><a href="/allBlogs">Back To your Blogs</a></button>
+      <br><br>
+      <form [formGroup]="updateBlogData" (ngSubmit)="updateBlogById()" >
+        <h3>Update Blog</h3>
+      <img 
+      [src]="blogData.imageUrls[0]" 
+        alt="Blog Image"
+        class="img-fluid rounded-4 mb-4 shadow-sm"
+        style="object-fit: cover; max-height: 300px; width: 100%;"
+        />
+    <div class="mb-3">
+     <label for="formFile" class="form-label">Update Blog Title Photo</label>
+     <input class="form-control" type="file" id="formFile" placeholder="update photo" >
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label ">Title</label>
+        <input type="text" class="form-control fs-5 lh-lg text-secondary" id="name" [(ngModel)]="blogData.title" formControlName="title">
+    </div>
+    <div class="mb-3">
+        <label for="bio" class="form-label">Content</label>
+        <textarea class="form-control fs-5 lh-lg text-secondary" id="bio" rows="4" [(ngModel)]="blogData.content" formControlName="content"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="country" class="form-label">Update Category</label>
+        <input class="form-control form-control-lg" list="countryList" id="country" [value]="blogData.category.categoryName">
+        <datalist id="countryList">
+          <option  *ngFor="let c of allCategory"  [value]="c.categoryName">
+            <!-- <option  [value]="c.categoryName"> -->
+        </datalist>
+      </div>        
+      <div class="mb-3">
+        <button class="btn btn-dark" type="submit">update Blog</button>
+      </div>
+    </form>
+      <br>
+        </div>
+    </div>
+
+    <!-- <p>
+        
+{{allCategory | json}}
+</p> -->

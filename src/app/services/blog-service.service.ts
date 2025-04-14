@@ -42,9 +42,11 @@ export class BlogServiceService
    }
 
    //update blog by id
-   updateBlogById(id:any,blog:Blog)
+   updateBlogById(id:any,blog:Blog):Observable<Blog>
    {
+    return this.http.put<Blog>(this.baseUrl+"/update/"+id,blog,
 
+    )
    }
 
    //search blog by title
