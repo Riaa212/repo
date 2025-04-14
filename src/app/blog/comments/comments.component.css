@@ -1,0 +1,51 @@
+.comments-container {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .comment-card {
+    background: #fff;
+    border-left: 4px solid #0d6efd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+  
+  .reply-card {
+    background-color: #eef8f1;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 3px solid #28a745;
+    border-radius: 8px;
+  }
+  
+  .comment-text {
+    color: #333;
+    font-size: 15px;
+  }
+  
+  .reply-input input {
+    border-radius: 6px;
+  }
+  
+
+   /* body {
+      background-color: #f8f9fa;
+    } */
+    .blog-view {
+      background: #fff;
+    }
+    .blog-view .badge {
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+    .blog-view img {
+      border: 1px solid #e6e6e6;
+    }
+
+    .container-fuild{
+      background-color: #f8f9fa;
+    }

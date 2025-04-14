@@ -8,11 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class UserServiceService {
 
-  baseurl="http://localhost:8087/user"
+  baseurl="/user"
   constructor(public http:HttpClient) {
 
    }
 
+   //register user
    RegisterUser(user:any):Observable<User>
    {
     return this.http.post<User>(this.baseurl+"/register",user,
@@ -20,5 +21,12 @@ export class UserServiceService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
       }
     ); 
+   }
+
+
+   //get user id
+   getUserId(id:any):Observable<User>
+   {
+    return this.http.get<User>(this.baseurl+"/getById/"+id)
    }
 }

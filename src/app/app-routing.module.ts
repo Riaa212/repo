@@ -15,6 +15,7 @@ import { AllBlogsComponent } from './blog/all-blogs/all-blogs.component';
 import { ProfileComponent } from './User/profile/profile.component';
 import { OtpComponent } from './otp/otp.component';
 import { authGraudGuard } from './auth-graud.guard';
+import { CommentsComponent } from './blog/comments/comments.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -31,11 +32,11 @@ const routes: Routes = [
   {path:'otp',component:OtpComponent},
   {path:'Blogs',component:ViewBlogComponent},
   {path:'createBlog',component:CreateBlogComponent},
-  
+  {path:'comment/:id',component:CommentsComponent},
   {path:'allBlogs',component:AllBlogsComponent,
     canActivate:[authGraudGuard],
     children:[
-      {path:'viewBlog',component:ViewBlogComponent},
+      {path:'viewBlog/:id',component:ViewBlogComponent},
       {path:'createBlog',component:CreateBlogComponent},
       {path:'updateBlog',component:UpdateBlogComponent}
     ]

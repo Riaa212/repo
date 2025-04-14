@@ -1,0 +1,194 @@
+<br><br>
+<!-- <div *ngFor="let b of blogData">
+  <p>{{b.title}}</p>
+</div> -->
+
+<!-- {{blogData | json}} -->
+<!-- <p>Blog Title: {{blogData.title}}</p>
+<p>Blog Content: {{blogData.content}}</p>
+<p>Blog Category: {{blogData.category.categoryName}}</p>
+<p>Created at: {{blogData.createdAt | date}}</p>
+<img [src]="blogData.imageUrls[0]" height="200" alt="">
+<div class="comments-container mt-5">
+
+    <h4 class="mb-4 text-primary">💬 Comments ({{ commentData.length }})</h4> -->
+<!--   
+    <div class="comment-card" *ngFor="let comment of comments">
+       -->
+      <!-- <div class="comment-header d-flex justify-content-between align-items-start">
+      
+
+        <div>
+          <h6 class="fw-bold mb-1 text-dark">{{ comment.username }}</h6>
+          <p class="comment-text mb-2">{{ comment.text }}</p>
+        </div>
+
+        <div>
+          <button class="btn btn-sm btn-outline-primary me-2" (click)="toggleReply(comment)">
+            <i class="bi bi-reply-fill"></i> Reply
+          </button>
+          <button class="btn btn-sm btn-outline-danger" (click)="deleteComment(comment)">
+            <i class="bi bi-trash"></i> Delete
+          </button>
+        </div>
+
+      </div> -->
+  
+      <!-- Reply input -->
+      <!-- <div *ngIf="comment.showReply" class="reply-input mt-2">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Write your reply..."
+          [(ngModel)]="comment.replyText"
+        />
+        <button class="btn btn-sm btn-success mt-2" (click)="submitReply(comment)">
+          Post Reply
+        </button>
+      </div> -->
+      <!-- replay input end -->
+
+  
+      <!-- Nested replies -->
+      <!-- <div class="replies ms-4 mt-3" *ngIf="comment.replies?.length">
+        <div class="reply-card" *ngFor="let reply of comment.replies">
+          <div class="d-flex justify-content-between">
+            <div>
+              <strong class="text-success">{{ reply.username }}</strong>
+              <p class="mb-0">{{ reply.text }}</p>
+            </div>
+            <button class="btn btn-sm btn-danger text-light" (click)="deleteReply(comment, reply)">
+          
+               X
+            </button>
+          </div>
+        </div>
+      </div> -->
+      <!-- nested replieds end -->
+
+    <!-- </div> -->
+
+
+    <!-- <br><br>
+    <hr>
+   -->
+      <!-- Reply input -->
+      <!-- <div *ngIf="comment.showReply" class="reply-input mt-2">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Write your reply..."
+          [(ngModel)]="comment.replyText"
+        />
+        <button class="btn btn-sm btn-success mt-2" (click)="submitReply(comment)">
+          Post Reply
+        </button>
+      </div> -->
+  
+      <!-- Nested replies -->
+      <!-- <div class="replies ms-4 mt-3" *ngIf="comment.replies?.length">
+        <div class="reply-card" *ngFor="let reply of comment.replies">
+          <div class="d-flex justify-content-between">
+            <div>
+              <strong class="text-success">{{ reply.username }}</strong>
+              <p class="mb-0">{{ reply.text }}</p>
+            </div>
+            <button class="btn btn-sm btn-danger text-light" (click)="deleteReply(comment, reply)">
+              
+               X
+            </button>
+          </div>
+        </div>
+      </div> -->
+
+
+
+
+
+    <!-- </div>
+  </div> -->
+  
+  <!-- <p>
+    Comments:
+    {{commentData | json}}
+  </p> -->
+
+  <!-- <p>{{commentData[0].userId}}</p> -->
+  <!-- <p>
+    {{userData | json}}
+  </p> -->
+  
+  <!-- <div *ngFor="let u of userData">
+    <p>{{u.userName}}</p>
+  </div> -->
+  <!-- <div *ngFor="let cmt of commentData">
+  
+    <p>
+      {{cmt.userId}}
+    </p>
+    <p>
+      {{cmt.comment_content}}
+    </p> 
+    <p>
+      {{ cmt.user?.userName || 'Anonymous' }}
+    </p>
+  </div> -->
+
+  <!-- <div *ngFor="let u of userData | keyvalue">
+    <p>{{u.value.toUpperCase}}</p>
+  </div> -->
+  <!-- {{userData | json}} -->
+
+  <!-- <body> -->
+    <div class="container-fuild p-5">
+      <div class="blog-view mx-auto shadow p-4 p-md-5 rounded-4 bg-white" style="max-width: 900px;">
+  
+        <!-- Category -->
+        <span class="badge rounded-pill bg-success px-3 py-2 mb-3 text-uppercase">
+        {{blogData.category.categoryName}}
+        </span>
+  
+        <!-- Title -->
+        <h1 class="fw-bold display-5 mb-4 text-dark">
+          {{blogData.title}} 🚀
+        </h1>
+  
+        <!-- Image -->
+        <img 
+        [src]="blogData.imageUrls[0]" 
+          alt="Blog Image"
+          class="img-fluid rounded-4 mb-4 shadow-sm"
+          style="object-fit: cover; max-height: 300px; width: 100%;"
+        />
+  
+        <!-- Content -->
+        <div class="fs-5 lh-lg text-secondary">
+          {{blogData.content}}
+        </div>
+  
+        <br>
+        <h4 class="mb-4 text-primary">💬 Comments ({{ commentData.length }})</h4>
+        <div class="comment-card bg-light" *ngFor="let cmt of commentData">
+      
+          <div class="comment-header d-flex justify-content-between align-items-start">
+          
+            <div>
+              <h6 class="fw-bold mb-1 text-dark">  {{ cmt.user?.userName || 'User' }}</h6>
+              <p class="comment-text mb-2">      {{cmt.comment_content}}</p>
+            </div>
+    
+            <div>
+              <button class="btn btn-sm btn-outline-primary me-2" (click)="toggleReply(commentData)">
+                <i class="bi bi-reply-fill"></i> Reply
+              </button>
+              <button class="btn btn-sm btn-outline-danger" (click)="deleteComment(cmt.id)">
+                <i class="bi bi-trash"></i> Delete
+              </button>
+            </div>
+    
+          </div>
+          </div>
+      </div>
+      
+    </div>
+  <!-- </body> -->

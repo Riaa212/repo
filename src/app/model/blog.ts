@@ -7,8 +7,9 @@ export class Blog {
     constructor(public id?:any,public title?:any,public content?:any,public user_id?:any,public category?:Category[],
      public  comments?:any,
      public createdAt?:any,
-     public lastUpdated?:any  ,
-     public imageUrls?:String[]
+     public lastUpdated?:any,
+     public imageUrls?:String[],
+     public totalComments?:any
     ){}
 }
 // string[];

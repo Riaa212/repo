@@ -29,9 +29,9 @@ export class BlogServiceService
   //  return this.http.get(this.baseUrl+"/getAllBlogs")
   //  }
 
-   getBlogById(id:any)
+   getBlogById(id:any):Observable<Blog[]>
    {
-
+    return this.http.get<Blog[]>(this.baseUrl+"/getBlogById/"+id);
    }
 
 
