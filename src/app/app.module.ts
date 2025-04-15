@@ -33,6 +33,7 @@ import { SearchBlogComponent } from './blog/search-blog/search-blog.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { loggingInterceptor } from './Interceptor/interceptor';
 import { CommentsComponent } from './blog/comments/comments.component';
+import { NgFor, NgForOf } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,7 @@ import { CommentsComponent } from './blog/comments/comments.component';
     ProfileComponent,
     OtpComponent,
     SearchBlogComponent,
-    CommentsComponent
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,

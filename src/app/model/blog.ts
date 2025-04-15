@@ -1,4 +1,5 @@
 import { Category } from "./category";
+import { Rating } from "./rating";
 
 export class Blog {
 // category: any;
@@ -9,7 +10,8 @@ export class Blog {
      public createdAt?:any,
      public lastUpdated?:any,
      public imageUrls?:String[],
-     public totalComments?:any
+     public totalComments?:any,
+     public rating?:Rating
     ){}
 }
 // string[];

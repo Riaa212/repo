@@ -42,7 +42,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 90%;
-    height: 300px;
+    height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -122,4 +122,25 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+.rating-container {
+  font-size: 2rem;
+  color: #ccc;
+  display: inline-block;
+  cursor: pointer;
+}
+span{
+    &.rated{
+        color: gold;
+        transition: color 0.3 ease-in;
+    }
+}
+.star:hover{
+    transition: color 0.3 ease-in-out;
+}
+
+#rating-value {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  color: #333;
 }

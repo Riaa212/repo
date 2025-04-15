@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Blog } from '../model/blog';
 import { PaginatedResponse } from '../Response/paginated-response';
 import { Observable } from 'rxjs';
+import { Rating } from '../model/rating';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,14 @@ export class BlogServiceService
 
     )
    }
+
+   //add rating to post
+   addrating(blogid:any,rating:any,userId:any):Observable<any>
+   {
+      return this.http.post<any>(this.baseUrl+"/addratingtest/"+blogid
+        +"/"+rating+"/"+userId,"")
+   }
+
 
    //search blog by title
    searchBlogByTitle(title:any)

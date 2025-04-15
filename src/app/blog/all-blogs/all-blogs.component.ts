@@ -3,6 +3,7 @@ import { BlogServiceService } from '../../services/blog-service.service';
 import { PaginatedResponse } from '../../Response/paginated-response';
 import { Blog } from '../../model/blog';
 import { Category } from './../../model/category';
+import { Rating } from '../../model/rating';
 
 @Component({
   selector: 'app-all-blogs',
@@ -30,8 +31,21 @@ export class AllBlogsComponent implements OnInit
   }
 
   Blogs:any
+
   constructor(public blogService:BlogServiceService){
   }
+
+  // count:any=0
+  // previousVal:any
+  // btn1(event:Event){
+  //   this.count=this.count+1
+  //   if(this.count>=2)
+  //   {
+  //     this.count-=1
+  //   }
+  //   console.log(this.count)
+  // }
+
 
   getAllBlogs()
   {
@@ -49,7 +63,18 @@ export class AllBlogsComponent implements OnInit
     console.log(this.previous)
     console.log(this.blogService.getAllBlogs(this.previous,this.pageSize).subscribe(a=>this.Blogs=a.content))
   }
-  
+  onRate(blogid:any,event:Event)
+  {
+    
+  }
+  rate:any
+  setval(val:any)
+  {
+
+    this.rate=val
+    console.log(val)
+    this.blogService.addrating(6,this.rate,1).subscribe((rs)=>console.log(rs))
+  }
   OnNext()
   {
     this.pageIndex++

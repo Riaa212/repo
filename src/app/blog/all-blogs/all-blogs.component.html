@@ -14,26 +14,55 @@
                   <img [src]="blog.imageUrls" alt="">
                   <!-- <p>{{blog.imageUrls}}</p> -->
                 <div class="card-content">
+                  <br>
                     <h3>{{blog.title}}</h3>
+                    <br>
                     <p>{{blog.content}}</p>
+                    <br>
                     <a href="#" class="btn-read-more"  [routerLink]="['/comment', blog.id]">View</a> &nbsp;
                     <a href="#" class="btn-update" [routerLink]="['/updateBlog', blog.id]">Update</a> &nbsp;
                     <a  class="btn-delete"  (click)="deleteBlogById(blog.id)" routerLink="/blogs">Delete</a>
                     <p>
+                      
                     <!-- <a  class="btn btn-link" [routerLink]="['/comment', blog.id]">
                     
                       Comments: {{blog.totalComments}}
                     </a> -->
                       <!-- <span class="badge rounded-pill bg-primary">Comments{{blog.totalComments}}</span></a> -->
                     </p>
-                    <br><br> 
+                    <!-- <ul style="list-style: none;">
+                      <li>
+                        <span class="star" data-value="1">&#9733;</span>
+                      </li>
+                    </ul> -->
+                    <div class="rating-container">
+                      <span class="star" data-value="1" (click)="setval(1)" [class.rated]="rate>=1">&#9733;</span>
+                      <span class="star" data-value="2" (click)="setval(2)" [class.rated]="rate>=2"> &#9733;</span>
+                      <span class="star" data-value="3" (click)="setval(3)" [class.rated]="rate>=3">&#9733;</span>
+                      <span class="star" data-value="4" (click)="setval(4)" [class.rated]="rate>=4">&#9733;</span>
+                     <span class="star" data-value="5" (click)="setval(5)" [class.rated]="rate>=5">&#9733;</span>
+                     &nbsp;
+                      <span id="rating-value" *ngIf="rate>0">
+                        {{rate}}/5</span>
+                    </div>
+                    <ul>
+                      <!-- <li *ngFor="let r of blog.rating"> -->
+                      <!-- {{r.rating}}  -->
+                    <!-- </li> -->
+                    </ul>
+                    <!-- <div *ngfor="let r of blog.rating">
+                      <p> df {{r.rating}}</p>
+                    </div> -->
                     <!-- <p class="card-text" style="font-size: 16px;">Created At : <small class="text-muted">{{blog.createdAt | date}}</small></p> -->
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago
                       {{blog.createdAt | date: 'shortTime'}}
-                    </small></p>
+                    </small></p> -->
+
+                    
                   </div>
-            </div>
+            </div>            
         </div>
+        
     </div>
     <nav aria-label="Page navigation example" class="page" >
         <ul class="pagination d-flex justify-content-center">
@@ -62,6 +91,6 @@
 <datalist id="categoryList">
   <option *ngFor="let c of Blogs" [value]="c.category.categoryName"></option>
 </datalist> -->
- <!-- <p>
+ <p>
   {{Blogs | json}}
- </p> -->
+ </p>
