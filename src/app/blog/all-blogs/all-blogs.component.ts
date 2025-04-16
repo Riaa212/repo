@@ -14,13 +14,19 @@ import { Rating } from '../../model/rating';
 export class AllBlogsComponent implements OnInit
 {
 
+    // users:User=new User();
   emps:PaginatedResponse[]=[];
   emp:[]=[]
   blog: Blog[] = [];  // Initialize the array to store employee data
   totalRecords: number = 0;
   pageSize: number = 5;
   pageIndex: number = -1;
-
+  //blog rating
+  // blogRating:Rating=new Rating();
+  blogRating={
+    'userId':1,
+    'rating':0
+  }
   previous:number=0
   next:number=0
   
@@ -70,11 +76,18 @@ export class AllBlogsComponent implements OnInit
   rate:any
   setval(val:any)
   {
-
     this.rate=val
-    console.log(val)
-    this.blogService.addrating(6,this.rate,1).subscribe((rs)=>console.log(rs))
+    this.blogRating.rating=this.rate
+    console.log("rating...."+this.rate)
+    // console.log("blog rating===>"+thi.blogRating.rating)
+    this.blogService.addrating(1,this.blogRating).subscribe((rs)=>console.log(rs))
   }
+
+  submitRating()
+  {
+    this.setval(this.blogRating.rating)
+  }
+
   OnNext()
   {
     this.pageIndex++

@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Blog } from '../model/blog';
 import { PaginatedResponse } from '../Response/paginated-response';
@@ -51,10 +51,14 @@ export class BlogServiceService
    }
 
    //add rating to post
-   addrating(blogid:any,rating:any,userId:any):Observable<any>
+   addrating(blogid:any,ratingData:any):Observable<string>
    {
-      return this.http.post<any>(this.baseUrl+"/addratingtest/"+blogid
-        +"/"+rating+"/"+userId,"")
+      return this.http.post<string>(this.baseUrl+"/addrating/"+blogid,ratingData,
+        // { observe: 'response' }
+        //  {
+        //         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        //  }
+      )
    }
 
 

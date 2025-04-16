@@ -35,7 +35,7 @@
                         <span class="star" data-value="1">&#9733;</span>
                       </li>
                     </ul> -->
-                    <div class="rating-container">
+                    <form class="rating-container" (ngSubmit)="submitRating()">
                       <span class="star" data-value="1" (click)="setval(1)" [class.rated]="rate>=1">&#9733;</span>
                       <span class="star" data-value="2" (click)="setval(2)" [class.rated]="rate>=2"> &#9733;</span>
                       <span class="star" data-value="3" (click)="setval(3)" [class.rated]="rate>=3">&#9733;</span>
@@ -44,7 +44,9 @@
                      &nbsp;
                       <span id="rating-value" *ngIf="rate>0">
                         {{rate}}/5</span>
-                    </div>
+                        <button class="btn btn-primary" type="submit">submit rate</button>
+                      </form>
+                      <p>{{blogRating | json}}</p>
                     <ul>
                       <!-- <li *ngFor="let r of blog.rating"> -->
                       <!-- {{r.rating}}  -->
