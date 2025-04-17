@@ -49,3 +49,27 @@
     .container-fuild{
       background-color: #f8f9fa;
     }
+
+    /* rating styling... */
+
+    .rating-container {
+      font-size: 2rem;
+      color: #ccc;
+      display: inline-block;
+      cursor: pointer;
+    }
+    span{
+        &.rated{
+            color: gold;
+            transition: color 0.3 ease-in;
+        }
+    }
+    .star:hover{
+        transition: color 0.3 ease-in-out;
+    }
+    
+    #rating-value {
+      margin-left: 10px;
+      font-size: 1.2rem;
+      color: #333;
+    }

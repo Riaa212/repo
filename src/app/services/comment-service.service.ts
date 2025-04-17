@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Comment } from '../model/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class CommentServiceService {
 
   }
 
+  addComment(blogId:any,commentData:any):Observable<any>
+  {
+    return this.http.post<any>(this.baseUrl+"/AddComment/"+blogId,commentData)
+  }
   getAllCommentsByBlogId(blogId:any):Observable<any[]> 
   {
     return this.http.get<any[]>(this.baseUrl+"/getCommentsByBlogId/"+blogId)

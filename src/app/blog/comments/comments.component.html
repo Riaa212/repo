@@ -178,6 +178,29 @@
           {{blogData.content}}
         </div>
   
+        <form class="rating-container" >
+          <span class="star" data-value="1" (click)="setval(1)" [class.rated]="rate>=1">&#9733;</span>
+          <span class="star" data-value="2" (click)="setval(2)" [class.rated]="rate>=2"> &#9733;</span>
+          <span class="star" data-value="3" (click)="setval(3)" [class.rated]="rate>=3">&#9733;</span>
+          <span class="star" data-value="4" (click)="setval(4)" [class.rated]="rate>=4">&#9733;</span>
+         <span class="star" data-value="5" (click)="setval(5)" [class.rated]="rate>=5">&#9733;</span>
+         &nbsp;
+          <span id="rating-value" *ngIf="rate>0">
+            {{rate}}/5</span>
+            <!-- <button class="btn btn-primary" type="submit">submit rate</button> -->
+          </form>
+          <p>{{blogRating | json}}</p>
+
+        <br>
+        <form [formGroup]="commentInputData" (ngSubmit)="addComment()" class="row">
+          <div class="col-md-8">
+                <input type="text" placeholder="add comment" class="form-control " formControlName="comment_content">
+                <input type="text" [(ngModel)]="userId.id" class="form-control " formControlName="userId" hidden="true">
+          </div>
+          <div class="col-md">
+            <button type="submit" class="btn btn-primary">Add comment</button>
+          </div>
+        </form>
         <br>
         <h4 class="mb-4 text-primary">💬 Comments ({{ commentData.length }})</h4>
         <div class="comment-card bg-light" *ngFor="let cmt of commentData">
@@ -188,7 +211,8 @@
               <h6 class="fw-bold mb-1 text-dark">  {{ cmt.user?.userName || 'User' }}</h6>
               <p class="comment-text mb-2">      {{cmt.comment_content}}</p>
             </div>
-    
+            <!-- <div> -->
+            <!-- </div> -->
             <div>
               <button class="btn btn-sm btn-outline-primary me-2" (click)="toggleReply(commentData)">
                 <i class="bi bi-reply-fill"></i> Reply
@@ -200,7 +224,11 @@
     
           </div>
           </div>
+          
       </div>
       
     </div>
   <!-- </body> -->
+   <!-- <p>{{blogData | json}}</p> -->
+    <!-- <p>{{blogData | json}}</p> -->
+     <p>{{userId.id}}</p>

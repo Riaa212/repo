@@ -55,7 +55,7 @@ export class AllBlogsComponent implements OnInit
 
   getAllBlogs()
   {
-    this.blogService.getAllBlogs(this.pageIndex,this.pageSize).subscribe(
+    this.blogService.getAllBlogsPagination(this.pageIndex,this.pageSize).subscribe(
       (rs)=>{this.Blogs=rs.content},
       (error)=>{console.log(error)}
 
@@ -67,20 +67,23 @@ export class AllBlogsComponent implements OnInit
     this.pageIndex--
     this.previous=this.pageIndex
     console.log(this.previous)
-    console.log(this.blogService.getAllBlogs(this.previous,this.pageSize).subscribe(a=>this.Blogs=a.content))
+    console.log(this.blogService.getAllBlogsPagination(this.previous,this.pageSize).subscribe(a=>this.Blogs=a.content))
   }
   onRate(blogid:any,event:Event)
   {
     
   }
+
   rate:any
   setval(val:any)
   {
     this.rate=val
     this.blogRating.rating=this.rate
     console.log("rating...."+this.rate)
+    
     // console.log("blog rating===>"+thi.blogRating.rating)
-    this.blogService.addrating(1,this.blogRating).subscribe((rs)=>console.log(rs))
+    // this.blogService.addrating(6,this.blogRating).subscribe((rs)=>console.log(rs))
+    // alert('ratings added successfully...')
   }
 
   submitRating()
@@ -92,7 +95,7 @@ export class AllBlogsComponent implements OnInit
   {
     this.pageIndex++
     this.next=this.pageIndex
-    console.log(this.blogService.getAllBlogs(this.next,this.pageSize).subscribe(a=>this.Blogs=a.content))
+    console.log(this.blogService.getAllBlogsPagination(this.next,this.pageSize).subscribe(a=>this.Blogs=a.content))
   }
 
   deleteBlogById(id:any)
@@ -103,5 +106,10 @@ export class AllBlogsComponent implements OnInit
     this.blogService.deleteBlogById(id).subscribe(()=>{
       alert(id+"blog deleted sucessfully...")
     })
+  }
+
+  getBlogByRatingId(id:any)
+  {
+    this.blogService.getBlogRatingId(id).subscribe((rs)=>console.log(rs))
   }
 }

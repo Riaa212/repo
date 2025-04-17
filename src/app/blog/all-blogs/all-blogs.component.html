@@ -7,14 +7,8 @@
           <!-- <img [src]="Blogs.imageUrls" alt=""> -->
             <div class="card" *ngFor="let blog of Blogs">
                 <div class="category">{{blog.category.categoryName}}</div>
-              
-                <!-- <img src="{{blog.imageUrls}}" alt=""> -->
-                <!-- <b>{{blog.imageUrls}}</b> -->
-                       <!-- <img [src]="blog.imageUrls[0]"  height="200" width="200"/> -->
                   <img [src]="blog.imageUrls" alt="">
-                  <!-- <p>{{blog.imageUrls}}</p> -->
                 <div class="card-content">
-                  <br>
                     <h3>{{blog.title}}</h3>
                     <br>
                     <p>{{blog.content}}</p>
@@ -22,40 +16,23 @@
                     <a href="#" class="btn-read-more"  [routerLink]="['/comment', blog.id]">View</a> &nbsp;
                     <a href="#" class="btn-update" [routerLink]="['/updateBlog', blog.id]">Update</a> &nbsp;
                     <a  class="btn-delete"  (click)="deleteBlogById(blog.id)" routerLink="/blogs">Delete</a>
-                    <p>
-                      
-                    <!-- <a  class="btn btn-link" [routerLink]="['/comment', blog.id]">
-                    
-                      Comments: {{blog.totalComments}}
-                    </a> -->
-                      <!-- <span class="badge rounded-pill bg-primary">Comments{{blog.totalComments}}</span></a> -->
-                    </p>
-                    <!-- <ul style="list-style: none;">
-                      <li>
-                        <span class="star" data-value="1">&#9733;</span>
-                      </li>
-                    </ul> -->
-                    <form class="rating-container" (ngSubmit)="submitRating()">
-                      <span class="star" data-value="1" (click)="setval(1)" [class.rated]="rate>=1">&#9733;</span>
-                      <span class="star" data-value="2" (click)="setval(2)" [class.rated]="rate>=2"> &#9733;</span>
-                      <span class="star" data-value="3" (click)="setval(3)" [class.rated]="rate>=3">&#9733;</span>
-                      <span class="star" data-value="4" (click)="setval(4)" [class.rated]="rate>=4">&#9733;</span>
-                     <span class="star" data-value="5" (click)="setval(5)" [class.rated]="rate>=5">&#9733;</span>
-                     &nbsp;
-                      <span id="rating-value" *ngIf="rate>0">
-                        {{rate}}/5</span>
-                        <button class="btn btn-primary" type="submit">submit rate</button>
-                      </form>
-                      <p>{{blogRating | json}}</p>
-                    <ul>
-                      <!-- <li *ngFor="let r of blog.rating"> -->
-                      <!-- {{r.rating}}  -->
-                    <!-- </li> -->
-                    </ul>
-                    <!-- <div *ngfor="let r of blog.rating">
-                      <p> df {{r.rating}}</p>
-                    </div> -->
-                    <!-- <p class="card-text" style="font-size: 16px;">Created At : <small class="text-muted">{{blog.createdAt | date}}</small></p> -->
+                    <br><br>
+                    <small><b>Ratings:</b></small> &nbsp;
+                    <div class="rating-container">
+                      <span class="star" data-value="1" (load)="setval(blog.avgRating)"   [class.rated]="blog.avgRating>=1">&#9733;</span>
+                      <span class="star" data-value="2" (load)="setval(blog.avgRating)"  [class.rated]="blog.avgRating>=2">&#9733;</span>
+                      <span class="star" data-value="3" (load)="setval(blog.avgRating)"  [class.rated]="blog.avgRating>=3">&#9733;</span>
+                      <span class="star" data-value="4" (load)="setval(blog.avgRating)"  [class.rated]="blog.avgRating>=4">&#9733;</span>
+                     <span class="star" data-value="5" (load)="setval(blog.avgRating)"  [class.rated]="blog.avgRating>=5">&#9733;</span>
+                      <span id="rating-value" *ngIf="blog.avgRating>0">
+                        {{blog.avgRating}}/5</span>
+                      </div>
+                    <p class="card-text" style="font-size: 16px;">
+                      Created At : <small class="text-muted">{{blog.createdAt | date}}</small> 
+                      &nbsp;&nbsp;
+                      <small class="text-muted">Last updated 3 mins ago
+                        {{blog.createdAt | date: 'shortTime'}}
+                      </small></p>
                     <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago
                       {{blog.createdAt | date: 'shortTime'}}
                     </small></p> -->
@@ -93,6 +70,6 @@
 <datalist id="categoryList">
   <option *ngFor="let c of Blogs" [value]="c.category.categoryName"></option>
 </datalist> -->
- <p>
+ <!-- <p>
   {{Blogs | json}}
- </p>
+ </p> -->

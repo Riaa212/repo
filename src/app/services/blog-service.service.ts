@@ -17,24 +17,31 @@ export class BlogServiceService
 
     baseUrl="/blog"
 
-   getAllBlogs(pageNumber:number,pagesize:number):Observable<PaginatedResponse> {
+      //get all blogs passing argument with page number and page size
+   getAllBlogsPagination(pageNumber:number,pagesize:number):Observable<PaginatedResponse> {
     const params = new HttpParams()
 
     .set('page', pageNumber.toString())
     .set('size', pagesize.toString())
     return this.http.get<PaginatedResponse>(this.baseUrl+"/getAllBlogs",{params});
   }
-  //  getAllBlogs(){
-  
-  //    console.log("getAll Api call...")
-  //  return this.http.get(this.baseUrl+"/getAllBlogs")
-  //  }
+
+  //get all blogs without passing page number and page size
+   getAllBlogs():Observable<PaginatedResponse>{
+    const params = new HttpParams()
+     console.log("getAll Api call...")
+     return this.http.get<PaginatedResponse>(this.baseUrl+"/getAllBlogs",{params})
+   }
 
    getBlogById(id:any):Observable<Blog[]>
    {
     return this.http.get<Blog[]>(this.baseUrl+"/getBlogById/"+id);
    }
 
+   getRatingByBlogId(blogid:any):Observable<any>
+   {
+    return this.http.get<any>(this.baseUrl+"/getRatingByBlogId/"+blogid)
+   }
 
    //delete blog by id
    deleteBlogById(id:any)
@@ -61,6 +68,12 @@ export class BlogServiceService
       )
    }
 
+   
+   
+   getBlogRatingId(blogId:any)
+   {
+    return this.http.get(this.baseUrl+"/getRatingByBlogId/"+blogId)
+   }
 
    //search blog by title
    searchBlogByTitle(title:any)

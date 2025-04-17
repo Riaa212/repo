@@ -10,20 +10,44 @@
             <p><b>Category</b></p>
             <select [formControl]="categoryControl" class="form-control mb-3">
                 <option value="">All Categories</option>
-                <option *ngFor="let category of getUniqueCategories()" [value]="category">{{ category }}</option>
+                <option *ngFor="let c of blogs" [value]="c.category">{{ c.category  }}</option>
               </select>
         </div>
+        <!-- {{categoryC | json}} -->
     </div>
   
     <ul class="list-group">
-      <li *ngFor="let blog of filteredBlog" class="list-group-item">
+      <li *ngFor="let blog of blogs" class="list-group-item">
         <strong>{{ blog.title }}</strong> <br>
-        <small class="text-muted">{{ blog.category }}</small>
+        <small class="text-muted">{{ blog.category}}</small>
       </li>
     </ul>
-    <!-- No Blogs Message -->
-<!-- <ng-template #noBlogs>
-    <p class="alert alert-warning text-center">No blogs found for this category.</p>
-  </ng-template> -->
-  <!-- </div> -->
-  
+
+  <!-- <div class="card" *ngFor="let blog of allBlogs">
+    <div class="category">{{blog.category.categoryName}}</div>
+      <img [src]="blog.imageUrls" alt="">
+    <div class="card-content">
+        <h3>{{blog.title}}</h3>
+        <br>
+        <p>{{blog.content}}</p>
+        <br>
+        <a href="#" class="btn-read-more"  [routerLink]="['/comment', blog.id]">View</a> &nbsp;
+        <br><br>
+        <small><b>Ratings:</b></small> &nbsp;
+        <div class="rating-container">
+          <span class="star" data-value="1" (load)="setval(blog.avgRating)"   [class.rated]="blog.avgRating>=1">&#9733;</span>
+          <span class="star" data-value="2" (load)="setval(blog.avgRating)"  [class.rated]="blog.avgRating>=2">&#9733;</span>
+          <span class="star" data-value="3" (load)="setval(blog.avgRating)"  [class.rated]="blog.avgRating>=3">&#9733;</span>
+          <span class="star" data-value="4" (load)="setval(blog.avgRating)"  [class.rated]="blog.avgRating>=4">&#9733;</span>
+         <span class="star" data-value="5" (load)="setval(blog.avgRating)"  [class.rated]="blog.avgRating>=5">&#9733;</span>
+          <span id="rating-value" *ngIf="blog.avgRating>0">
+            {{blog.avgRating}}/5</span>
+          </div>
+        <p class="card-text" style="font-size: 16px;">
+          Created At : <small class="text-muted">{{blog.createdAt | date}}</small> 
+          &nbsp;&nbsp;
+          <small class="text-muted">Last updated 3 mins ago
+            {{blog.createdAt | date: 'shortTime'}}
+          </small></p>
+      </div>
+</div>     -->

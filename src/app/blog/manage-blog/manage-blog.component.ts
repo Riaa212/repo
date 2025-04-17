@@ -31,7 +31,7 @@ export class ManageBlogComponent implements OnInit
 
   getAllBlogs()
   {
-    this.blogService.getAllBlogs(this.pageIndex,this.pageSize).subscribe(
+    this.blogService.getAllBlogsPagination(this.pageIndex,this.pageSize).subscribe(
       (rs)=>{this.Blogs=rs.content},
       (error)=>{console.log(error)}
 
@@ -43,7 +43,7 @@ export class ManageBlogComponent implements OnInit
     this.pageIndex--
     this.previous=this.pageIndex
     console.log(this.previous)
-    console.log(this.blogService.getAllBlogs(this.previous,this.pageSize).subscribe(a=>this.Blogs=a.content))
+    console.log(this.blogService.getAllBlogsPagination(this.previous,this.pageSize).subscribe(a=>this.Blogs=a.content))
       //getAllEmployees(this.previous,this.pageSize).subscribe(a=>this.blog=a.content))
   }
   
@@ -53,7 +53,7 @@ export class ManageBlogComponent implements OnInit
     this.pageIndex++
     this.next=this.pageIndex
     // this.next=pa
-    console.log(this.blogService.getAllBlogs(this.next,this.pageSize).subscribe(a=>this.Blogs=a.content))
+    console.log(this.blogService.getAllBlogsPagination(this.next,this.pageSize).subscribe(a=>this.Blogs=a.content))
       //getAllEmployees(this.next,this.pageSize).subscribe(a=>this.blog=a.content))
   }
 

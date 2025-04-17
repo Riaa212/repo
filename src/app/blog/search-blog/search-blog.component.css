@@ -13,3 +13,138 @@
     text-align: left;
   }
   
+  /* blogs styling */
+  
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* Horizontal Cards Section */
+.horizontal-cards {
+  background-color: #fff;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Card Styles */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Category Section */
+.card .category {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: #f39c12; */
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* On Hover, Show Category */
+.card:hover .category {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+  width: 60%;
+  text-align: left;
+}
+
+.card-content h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-content p {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.btn-read-more ,.btn-update,.btn-delete{
+  text-decoration: none;
+  color:#f39c12;
+  border-radius: 4px;
+  border: 1px solid  #f39c12;
+  /* border: 1px solid #99BC85; */
+  padding:10px;
+  /* font-weight: bold; */
+  font-size: 16px;
+}
+
+.btn-read-more:hover ,.btn-update:hover,.btn-delete:hover{
+  color: rgba(0, 0, 0, 0.7);
+  /* border: 1px solid rgba(0, 0, 0, 0.7); */
+}
+
+.page{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.rating-container {
+font-size: 2rem;
+color: #ccc;
+display: inline-block;
+cursor: pointer;
+}
+span{
+  &.rated{
+      color: gold;
+      transition: color 0.3 ease-in;
+  }
+}
+.star:hover{
+  transition: color 0.3 ease-in-out;
+}
+
+#rating-value {
+margin-left: 10px;
+font-size: 1.2rem;
+color: #333;
+}
