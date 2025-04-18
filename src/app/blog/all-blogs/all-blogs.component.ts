@@ -106,6 +106,7 @@ export class AllBlogsComponent implements OnInit
     this.blogService.deleteBlogById(id).subscribe(()=>{
       alert(id+"blog deleted sucessfully...")
     })
+    location.reload()
   }
 
   getBlogByRatingId(id:any)

@@ -11,7 +11,8 @@ export class Blog {
      public lastUpdated?:any,
      public imageUrls?:String[],
      public totalComments?:any,
-     public rating?:Rating
+     public rating?:Rating,
+     public totalview?:number
     ){}
 }
 // string[];

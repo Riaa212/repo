@@ -8,6 +8,7 @@ import { User } from '../../model/user';
 import { BlogServiceService } from '../../services/blog-service.service';
 import { Blog } from '../../model/blog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginStorageService } from '../../login-storage.service';
 
 @Component({
   selector: 'app-comments',
@@ -24,18 +25,17 @@ export class CommentsComponent implements OnInit
   id:any
   uid:any
  commentInputData:any
-
-  blogRating={
-    'userId':1,
-    'rating':0
-  }
+ cUser:any
   constructor(public cmtService:CommentServiceService,private route: ActivatedRoute,
     private userService:UserServiceService,
     private blogservice:BlogServiceService ,
-    private fb:FormBuilder
+    private fb:FormBuilder,
+    private storage:LoginStorageService
   )
   {
     this.getUserById();
+    this.getUserByEmail();
+    // console.log(this.cUser.id)
     // console.log("conhsuh")
     this.id = this.route.snapshot.paramMap.get('id');
     // console.log("USER ID: "+this.id)
@@ -49,7 +49,10 @@ export class CommentsComponent implements OnInit
       userId:['',Validators.required]
     })
   }
-
+  blogRating={
+    'userId':3,
+    'rating':0
+  }
 
   ngOnInit(){
 
@@ -57,7 +60,7 @@ export class CommentsComponent implements OnInit
 
   getBlogData(id:any)
   {
-    console.log("blog id==>"+id)
+    // console.log("blog id==>"+id)
     this.blogservice.getBlogById(id).subscribe((rs)=>this.blogData=rs)
     
   }
@@ -68,7 +71,7 @@ export class CommentsComponent implements OnInit
   {
     this.rate=val
     this.blogRating.rating=this.rate
-    console.log("rating...."+this.rate)
+    // console.log("rating...."+this.rate)
     // console.log("blog rating===>"+thi.blogRating.rating)
     this.blogservice.addrating(this.id,this.blogRating).subscribe((rs)=>console.log(rs))
     alert('ratings added successfully...')
@@ -82,29 +85,51 @@ export class CommentsComponent implements OnInit
 
       this.cmtService.getAllCommentsByBlogId(blogid).subscribe((comments) => {
         this.commentData = comments;
-      
+        this.useremail=this.storage.getLoginData("uname")
+
         this.commentData.forEach(comment => {
-          this.userService.getUserId(this.userId.id).subscribe(user => {
+          // console.log("comment userid:"+comment.userId)
+          this.userService.getUserByUserId(comment.userId).subscribe(user => {
             comment.user = user;
           });
         });
       });
     
     }
+
     userId:any
+    useremail:any
     getUserById()
     {
-        this.userService.getUserId(1).subscribe((rs)=>this.userId=rs)
+      // getUserByEmail
+        this.userService.getUserByUserId(1).subscribe((rs)=>this.userId=rs)
       // return null;
+    }
+
+    currrentUserId:any
+    getUserByEmail()
+    {
+      // console.log("get user by email called...")
+      this.useremail=this.storage.getLoginData("uname")
+      // console.log("current user====>"+this.useremail)
+      this.userService.getUserByEmail(this.useremail).subscribe((rs)=>{
+        this.currrentUserId=rs.id
+        // console.log(rs.id)
+      },
+    )
     }
   //delete comment by id
   deleteComment(commentId: any) {
       this.cmtService.deleteCommentById(commentId).subscribe(rs=>alert('deleted successfully'));
+      // this.blogData.filter((a:any)=>a!=commentId)
+      // this.commentData.filter((a:any)=>a.id!=commentId)
+      location.reload()
   }
   
   addComment(){
     // console.log(this.blogData.user_id+"blog id:"+this.id)
     this.cmtService.addComment(this.id,this.commentInputData.value).subscribe()
+    location.reload()
   }
 
   comments = [

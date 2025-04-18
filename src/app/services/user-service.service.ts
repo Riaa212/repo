@@ -25,7 +25,11 @@ export class UserServiceService {
 
 
    //get user id
-   getUserId(id:any):Observable<User>
+   getUserByEmail(email:any):Observable<any>
+   {
+    return this.http.get<any>(this.baseurl+"/getUserByEmail/"+email)
+   }
+   getUserByUserId(id:any):Observable<User>
    {
     return this.http.get<User>(this.baseurl+"/getById/"+id)
    }

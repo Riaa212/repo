@@ -195,7 +195,7 @@
         <form [formGroup]="commentInputData" (ngSubmit)="addComment()" class="row">
           <div class="col-md-8">
                 <input type="text" placeholder="add comment" class="form-control " formControlName="comment_content">
-                <input type="text" [(ngModel)]="userId.id" class="form-control " formControlName="userId" hidden="true">
+                <input type="text" [(ngModel)]="currrentUserId" class="form-control " formControlName="userId" hidden="true" >
           </div>
           <div class="col-md">
             <button type="submit" class="btn btn-primary">Add comment</button>
@@ -214,9 +214,9 @@
             <!-- <div> -->
             <!-- </div> -->
             <div>
-              <button class="btn btn-sm btn-outline-primary me-2" (click)="toggleReply(commentData)">
+              <!-- <button class="btn btn-sm btn-outline-primary me-2" (click)="toggleReply(commentData)">
                 <i class="bi bi-reply-fill"></i> Reply
-              </button>
+              </button> -->
               <button class="btn btn-sm btn-outline-danger" (click)="deleteComment(cmt.id)">
                 <i class="bi bi-trash"></i> Delete
               </button>
@@ -225,10 +225,14 @@
           </div>
           </div>
           
-      </div>
-      
+      </div>      
     </div>
+    <!-- {{currrentUserId | json}} -->
+    <!-- <p>{{cUser }}</p> -->
   <!-- </body> -->
    <!-- <p>{{blogData | json}}</p> -->
     <!-- <p>{{blogData | json}}</p> -->
-     <p>{{userId.id}}</p>
+     <!-- <p>{{userId.id}}</p>
+     <p>{{commentData | json}}</p> -->
+
+
