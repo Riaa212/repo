@@ -5,7 +5,7 @@
     
         <div class="cards-wrapper">
           <!-- <img [src]="Blogs.imageUrls" alt=""> -->
-            <div class="card" *ngFor="let blog of Blogs">
+            <div class="card" *ngFor="let blog of Blogs.content">
                 <div class="category">{{blog.category.categoryName}}</div>
                   <img [src]="blog.imageUrls" alt="">
                 <div class="card-content">
@@ -57,7 +57,7 @@
         </li>
           <li class="page-item"><a class="page-link active" href="#">{{pageIndex + 1 }}</a></li>
           <li class="page-item">
-          <button type="submit" class="btn onNext-btn bg-light" (click)="OnNext()">
+          <button type="submit" class="btn onNext-btn bg-light" style="border: none;" (click)="OnNext()"  [class.disabled]="Blogs.last==true">
             Next
           </button>
           </li>

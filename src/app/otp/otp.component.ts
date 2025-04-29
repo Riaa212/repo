@@ -64,7 +64,7 @@ export class OtpComponent {
   verifyOtp() {
     this.val=this.forgetpwdData.value
     // console.log("form data===>"+this.forgetpwdData.value)
-    this.forgetpwdservice.verifyOtp(this.forgetpwdData.value).subscribe(rs=>console.log(rs.password))
+    this.forgetpwdservice.verifyOtp(this.forgetpwdData.value).subscribe(rs=>console.log(rs))
     
     // console.log('Verifying OTP:', this.otp);
   }

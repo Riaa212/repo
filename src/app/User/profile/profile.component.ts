@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../model/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import * as CryptoJS from  'crypto-js';
+import { constant } from '../../constant';
 @Component({
   selector: 'app-profile',
   standalone: false,
@@ -17,14 +18,20 @@ export class ProfileComponent {
   userData:any
   storage=inject(LoginStorageService)
   route=inject(Router)
-  
   userFormData:any
-
   baseUrl="/user"
+
+  dycryptedName:any
+
+  dycrptData(data:any)
+  {
+    return CryptoJS.AES.decrypt(data,constant.EN_KEY).toString(CryptoJS.enc.Utf8);
+  }
 
   constructor(public http:HttpClient,fb:FormBuilder)
   {
-
+     const uname=this.storage.getLoginData("uname")
+     this.dycryptedName=this.dycrptData(uname);
     this.userFormData=fb.group({
       userName:['',Validators.required],
       // password:['',Validators.required],
@@ -58,6 +65,7 @@ export class ProfileComponent {
     // console.log("update user Id==>"+this.userData.id)
     this.http.put(this.baseUrl+"/update/"+this.userData.id,this.userFormData.value).subscribe((rs)=>{
       this.userData=rs
+      alert("profile updated successfully")
     })
     // this.storage.getLoginData("token")
   }
